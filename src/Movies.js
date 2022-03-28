@@ -1,5 +1,5 @@
 import React from "react";
-import "./Movies.scss";
+import "./styles/Movies.scss";
 
 class Movies extends React.Component {
   constructor(props) {
