@@ -2,41 +2,50 @@
 
 @import "./base/settings";
 
-@mixin centerer {
-  position: absolute;
-  transform: translate(-50%, 0);
-}
-
 body {
   font-family: $font-stack;
   font-size: $font-size;
   cursor: pointer;
-  background-color: rgb(195, 220, 224);
-  background: no-repeat url(./assets/skyImg.jpg);
+  background-color: #cfd8df82;
+  background: url(./assets/skyImg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
 }
 
 header {
   display: flex;
   justify-content: center;
-  position: relative;
+  align-items: center;
   background: linear-gradient(to right, $orange-light, $orange-dark);
-  width: $width;
+  width: 100%;
   height: 3rem;
-  padding: 1.5rem;
-  @include centerer;
-  left: 50%;
+  padding: 1.5rem 0;
+  margin: 0;
 }
+.input-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  padding: 0 1rem;
+  background-color: $background-color;
+  position: relative;
+  z-index: 0;
+}
+
 input {
   font-family: $font-stack;
   font-weight: $font-weight-hard;
   font-size: $font-size;
-  background-color: $background-color;
-  padding: $padding;
-  margin: 1.5px;
-  padding-left: 4.5rem;
-  width: $width - 9%;
+  background-color: rgba(255, 0, 0, 0);
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
   color: $white;
   border: none;
+
   &:focus {
     outline: none;
   }
@@ -45,34 +54,18 @@ input {
   color: $white;
 }
 
-.movie-svg {
-  fill: $white;
-  width: 2rem;
-  position: absolute;
-  left: 9%;
-  transform: translate(10%, 30%);
-  height: 1.8rem;
-}
-button {
-  padding: $padding;
-  font-size: 1.3rem;
-  color: $orange-light;
-  border: none;
-  margin: 1.5px;
-}
 .results {
-  // is .parent-div's child
   position: absolute;
-  transform: translate(-50%, 11%);
-  left: 50%;
-  width: 64%;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  box-shadow: 2px 2px 3px 0 $grey, -2px 1px 3px 1px $grey;
+  z-index: 1;
+  margin-top: 39.7rem;
+  width: 95%;
+  left: 0;
+  padding-top: 1rem;
   padding-bottom: $padding;
-  background-color: $white;
+  background: linear-gradient(to right, $white, rgba(255, 0, 0, 0));
+
   .one-movie {
-    padding: $padding;
+    padding: 0.8rem 1.3rem;
     width: $width;
   }
   .title {
@@ -85,12 +78,9 @@ button {
 }
 
 .other-content {
-  @include centerer;
-  left: 50%;
   background-color: $white;
-  width: $width;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   z-index: -1;
 }

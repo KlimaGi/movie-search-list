@@ -2,9 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./styles/styles.scss";
 
-import useIcon from "./functions/useIcon";
-import movieIcon from "./styles/assets/movieIcon.svg";
-
+import { Icon } from "./components/Icon";
 export const Movies = () => {
   const [showResults, setShowResults] = useState(false);
   const [movies, setMovies] = useState([]);
@@ -37,31 +35,33 @@ export const Movies = () => {
   };
 
   return (
-    <div className="parent-div">
+    <div>
       <header>
-        <useIcon icon={movieIcon} name="movie icon" />
+        <div className="input-div">
+          <Icon />
+          <input
+            value={selectedMovie}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            placeholder="Enter movie name"
+          />
 
-        <input
-          value={selectedMovie}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          placeholder="Enter movie name"
-        />
+          {showResults && (
+            <ul className="results">
+              {movies.map((movie, index) => (
+                <Movie
+                  title={movie.title}
+                  rating={movie.vote_average}
+                  year={movie.release_date}
+                  onClickMovie={selectMovie}
+                  indexKey={index}
+                />
+              ))}
+            </ul>
+          )}
+        </div>
       </header>
 
-      {showResults && (
-        <ul className="results">
-          {this.state.movies.map((movie, index) => (
-            <Movie
-              title={movie.title}
-              rating={movie.vote_average}
-              year={movie.release_date}
-              onClickMovie={selectMovie}
-              indexKey={index}
-            />
-          ))}
-        </ul>
-      )}
       <div className="other-content"></div>
     </div>
   );
