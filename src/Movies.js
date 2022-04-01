@@ -35,7 +35,7 @@ export const Movies = () => {
   };
 
   return (
-    <div>
+    <div className="other-content">
       <header>
         <div className="input-div">
           <Icon />
@@ -43,26 +43,25 @@ export const Movies = () => {
             value={selectedMovie}
             onChange={handleChange}
             onFocus={handleFocus}
+            onBlur={handleFocus}
             placeholder="Enter movie name"
           />
 
           {showResults && (
             <ul className="results">
-              {movies.map((movie, index) => (
+              {movies.map((movie) => (
                 <Movie
                   title={movie.title}
                   rating={movie.vote_average}
                   year={movie.release_date}
                   onClickMovie={selectMovie}
-                  indexKey={index}
+                  keyId={movie.id}
                 />
               ))}
             </ul>
           )}
         </div>
       </header>
-
-      <div className="other-content"></div>
     </div>
   );
 };
@@ -70,7 +69,7 @@ export const Movies = () => {
 function Movie(props) {
   return (
     <li
-      key={props.indexKey}
+      key={props.keyId}
       className="one-movie"
       onClick={() => {
         props.onClickMovie(props.title);
@@ -79,7 +78,7 @@ function Movie(props) {
       <div>
         <div className="title">{props.title}</div>
         <div>
-          {props.rating} Rating, {props.year.slice(0, 4)}
+          {props.rating} Rating, {props.year.slice(0, 4)}, key is {props.keyId}
         </div>
       </div>
     </li>
