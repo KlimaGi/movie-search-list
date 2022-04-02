@@ -19,4 +19,8 @@
   li {
     list-style: none;
   }
+
+  @media screen and (max-width: 454px) {
+    margin-top: 41rem;
+  }
 }
