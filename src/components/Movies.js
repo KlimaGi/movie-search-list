@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import "./styles/styles.scss";
+import { Icon } from "./Icon";
+import { Movie } from "./Movie";
+import "../styles/styles.scss";
 
-import { Icon } from "./components/Icon";
 export const Movies = () => {
   const [showResults, setShowResults] = useState(false);
   const [movies, setMovies] = useState([]);
@@ -35,7 +36,7 @@ export const Movies = () => {
   };
 
   return (
-    <div className="other-content">
+    <div className="white-lay">
       <header>
         <div className="input-div">
           <Icon />
@@ -48,7 +49,7 @@ export const Movies = () => {
           />
 
           {showResults && (
-            <ul className="results">
+            <ul className="results-ul-li">
               {movies.map((movie) => (
                 <Movie
                   title={movie.title}
@@ -65,22 +66,3 @@ export const Movies = () => {
     </div>
   );
 };
-
-function Movie(props) {
-  return (
-    <li
-      key={props.keyId}
-      className="one-movie"
-      onClick={() => {
-        props.onClickMovie(props.title);
-      }}
-    >
-      <div>
-        <div className="title">{props.title}</div>
-        <div>
-          {props.rating} Rating, {props.year.slice(0, 4)}, key is {props.keyId}
-        </div>
-      </div>
-    </li>
-  );
-}

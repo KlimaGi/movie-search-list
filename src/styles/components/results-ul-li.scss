@@ -1,0 +1,22 @@
+.results-ul-li {
+  position: absolute;
+  z-index: 2;
+  margin-top: 39.7rem;
+  width: 95%;
+  left: 0;
+  padding-top: 1rem;
+  padding-bottom: 0.8rem;
+  background: linear-gradient(to right, $white, $glass-color);
+
+  .one-movie {
+    padding: 0.8rem 1.3rem;
+    width: 85%;
+  }
+  .title {
+    font-weight: $font-weight-hard;
+    color: $black;
+  }
+  li {
+    list-style: none;
+  }
+}
