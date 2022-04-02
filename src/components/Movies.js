@@ -23,13 +23,15 @@ export const Movies = () => {
         .then((response) => response.json())
         .then((json) => {
           const moviesResult = json.results.slice(0, 8);
+          const all = json.results;
+          console.log(all);
           setMovies(moviesResult);
         });
       setShowResults(true);
     }
   };
 
-  const selectMovie = (movieTitle) => {
+  const handleSelect = (movieTitle) => {
     setSelectedMovie(movieTitle);
     setShowResults(false);
     setMovies([]);
@@ -55,7 +57,7 @@ export const Movies = () => {
                   title={movie.title}
                   rating={movie.vote_average}
                   year={movie.release_date}
-                  onClickMovie={selectMovie}
+                  onClickMovie={handleSelect}
                   keyId={movie.id}
                 />
               ))}

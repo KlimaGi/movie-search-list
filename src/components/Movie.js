@@ -10,7 +10,7 @@ export const Movie = (props) => {
       <div>
         <div className="title">{props.title}</div>
         <div>
-          {props.rating} Rating, {props.year.slice(0, 4)}, key is {props.keyId}
+          {props.rating} Rating, {props.year.slice(0, 4)}
         </div>
       </div>
     </li>
