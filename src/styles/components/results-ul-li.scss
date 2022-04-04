@@ -1,5 +1,5 @@
 .results-ul-li {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   padding: 1rem;
   background: linear-gradient(to right, $white, $glass-color);
@@ -14,4 +14,10 @@
   li {
     list-style: none;
   }
+}
+.error-text {
+  width: 64%;
+  padding: 1rem 3.8rem;
+  font-weight: $font-weight-hard;
+  color: $orange-light;
 }

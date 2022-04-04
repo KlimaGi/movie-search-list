@@ -8,6 +8,7 @@ export const Movies = () => {
   const [showResults, setShowResults] = useState(false);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState("");
+  const [isError, setError] = useState(false);
 
   const handleFocus = () => {
     setSelectedMovie("");
@@ -28,15 +29,18 @@ export const Movies = () => {
         })
         .catch((error) => {
           setShowResults(false);
+          setError(true);
         });
       setShowResults(true);
+      setError(false);
+    } else {
+      setShowResults(false);
+      setError(true);
     }
   };
 
   const handleSelect = (movieTitle) => {
     setSelectedMovie(movieTitle);
-    setShowResults(false);
-    setMovies([]);
   };
 
   return (
@@ -66,6 +70,7 @@ export const Movies = () => {
           ))}
         </ul>
       )}
+      {isError && <div className="results-ul-li error-text">No results.</div>}
     </div>
   );
 };
