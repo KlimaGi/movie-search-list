@@ -23,9 +23,11 @@ export const Movies = () => {
         .then((response) => response.json())
         .then((json) => {
           const moviesResult = json.results.slice(0, 8);
-          const all = json.results;
-          console.log(all);
+
           setMovies(moviesResult);
+        })
+        .catch((error) => {
+          setShowResults(false);
         });
       setShowResults(true);
     }
@@ -49,22 +51,21 @@ export const Movies = () => {
             onBlur={handleFocus}
             placeholder="Enter movie name"
           />
-
-          {showResults && (
-            <ul className="results-ul-li">
-              {movies.map((movie) => (
-                <Movie
-                  title={movie.title}
-                  rating={movie.vote_average}
-                  year={movie.release_date}
-                  onClickMovie={handleSelect}
-                  keyId={movie.id}
-                />
-              ))}
-            </ul>
-          )}
         </div>
       </header>
+      {showResults && (
+        <ul className="results-ul-li">
+          {movies.map((movie) => (
+            <Movie
+              title={movie.title}
+              rating={movie.vote_average}
+              year={movie.release_date}
+              onClickMovie={handleSelect}
+              keyId={movie.id}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
