@@ -1,6 +1,10 @@
-.results-ul-li {
+@mixin centerer {
   width: 70%;
   margin: 0 auto;
+}
+
+.results-ul-li {
+  @include centerer;
   padding: 1rem;
   background: linear-gradient(to right, $white, $glass-color);
 
@@ -16,9 +20,7 @@
   }
 }
 .error-text {
-  width: 70%;
-  margin: 0 auto;
-
+  @include centerer;
   font-weight: $font-weight-hard;
   color: $orange-light;
 }

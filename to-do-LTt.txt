@@ -1,0 +1,16 @@
+Šis projektas yra WCC Academy užduoties improvizacija.
+
+Sukurtas paieškos _autocomplete_ web komponentas, kurio pagalba vartotojas gali pasirinkti kino filmą iš įvestos frazės atitikmenų. Paieškos komponentas bendrauja su filmų informacijos API.
+
+Paieškos langas leidžia įvesti paieškos tekstą ir pateikia galimus variantus.
+Pasirinkus vieną iš rezultatų, komponento įvesties tekstas atsinaujina pagal pasirinkimą.
+Maksimalus rodomas dinaminės paieškos rezultatų kiekis - 8 filmų įrašai.
+Minimalus simbolių kiekis, aktyvuojantis dinaminę paiešką - 3. Jeigu ši sąlyga tenkinama, bet koks simbolio pakeitimas panaikina buvusius rezultatus ir iš naujo aktyvuoja dinaminę paiešką.
+ Komponentas naudoja informaciją, gaunamą dinamiškai iš filmų duomenų API:
+   `GET: https://api.themoviedb.org/3/search/movie?api_key=**{api_raktas}**&language=en-US&query=**{paieškos_tekstas}**`
+
+_to_do:
+1. Stiliaus aprašus  išlaikyti tvarkingus, vengiant nereikalingų komandų. 
+2. Panaudoti _debounce_ funkciją siekiant apsisaugot nuo nereikalingų užklausų į filmų bazę. 
+3. Padaryti _error handling_ ar _loadinimą_.
+4. Deploy'inti.
